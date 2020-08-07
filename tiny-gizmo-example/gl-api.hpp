@@ -86,7 +86,7 @@ namespace
         auto typeStr = gl_enum_to_str(type);
         auto severityStr = gl_severity_to_str(severity);
         std::cout << "gl_debug_callback: " << sourceStr << ", " << severityStr << ", " << typeStr << " , " << id << ", " << message << std::endl;
-        if ((type == GL_DEBUG_TYPE_ERROR) && (gEnableGLDebugOutputErrorBreakpoints)) __debugbreak();
+        // if ((type == GL_DEBUG_TYPE_ERROR) && (gEnableGLDebugOutputErrorBreakpoints)) __debugbreak();
     }
 
     inline void gl_check_error(const char * file, int32_t line)
@@ -129,7 +129,7 @@ class GlObject
     std::string n;
 public:
     GlObject() {}
-    GlObject(GLuint h) : handle(g) {}
+    GlObject(GLuint h) : handle() {}
     ~GlObject() { if (handle) factory_t::destroy(handle); }
     GlObject(const GlObject & r) = delete;
     GlObject & operator = (GlObject && r) { std::swap(handle, r.handle); std::swap(n, r.n);  return *this; }

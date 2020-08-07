@@ -14,7 +14,7 @@
 #include "glew.h"
 
 #define GLFW_INCLUDE_GLU
-#include "GLFW\glfw3.h"
+#include "GLFW/glfw3.h"
 
 #include "../tiny-gizmo.hpp"
 #include "linalg.h"
